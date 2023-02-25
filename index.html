@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Dog Image</title>
+  </head>
+  <body>
+    <img id="dog-image" src="" alt="Random Dog Image" />
+    <button onclick="getRandomDogImage()">Get Random Dog Image</button>
+
+    <script>
+      function getRandomDogImage() {
+        fetch('https://dog.ceo/api/breeds/image/random')
+          .then(response => response.json())
+          .then(data => {
+            const dogImage = document.getElementById('dog-image');
+            dogImage.src = data.message;
+          });
+      }
+    </script>
+  </body>
+</html>
